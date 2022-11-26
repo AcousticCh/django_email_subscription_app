@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from django.shortcuts import render,HttpResponse, HttpResponseRedirect
 from django.contrib.auth import get_user_model
 from django.views import View
@@ -9,6 +11,7 @@ from django.core.mail import send_mail
 from .forms import SubscribeForm
 from .models import Subscriber, EmailTemplate
 
+load_dotenv()
 
 class SubscribeView(View):
     template_name = "subscribe_form.html"
@@ -56,7 +59,7 @@ def send_email(request):
             [sub],
             fail_silently=False,
             auth_user="blogpad@zohomail.com",
-            auth_password="parkwayDr1ve?",
+            auth_password=os.environ["EMAIL_PASSWORD"],
         )
 
     return HttpResponse(new_email_body)
