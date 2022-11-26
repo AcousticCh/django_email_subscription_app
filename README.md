@@ -1,6 +1,5 @@
-=====
-Email Subscription App
-=====
+# Email Subscription App
+
 
 email subscription app is a Django emailing system for users to subscribe for emails and site admins to send prewritten, automated and personalized emails to thier application subscribers 
 
